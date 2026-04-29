@@ -134,7 +134,7 @@ export function ItemCard({
         {/* Footer: users + meta */}
         <div className="mt-2 flex items-center gap-2">
           <div className="flex -space-x-1.5">
-            {item.users.slice(0, 3).map((u, i) => (
+            {(item.users ?? []).slice(0, 3).map((u, i) =>  (
               <InitialsAvatar
                 key={`${u}-${i}`}
                 initials={u}

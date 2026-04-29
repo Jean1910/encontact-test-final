@@ -21,7 +21,8 @@ export function InitialsAvatar({
   className,
   title,
 }: InitialsAvatarProps) {
-  const bg = avatarColor(initials);
+  const safe = (initials ?? "").toString();
+  const bg = avatarColor(safe);
   return (
     <span
       className={cn(
@@ -30,10 +31,10 @@ export function InitialsAvatar({
         className,
       )}
       style={{ backgroundColor: bg }}
-      title={title ?? initials}
-      aria-label={title ?? `Avatar ${initials}`}
+      title={title ?? safe}
+      aria-label={title ?? `Avatar ${safe}`}
     >
-      {initials.slice(0, 2)}
+      {safe.slice(0, 2) || "?"}
     </span>
   );
 }
